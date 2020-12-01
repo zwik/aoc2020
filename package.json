@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "jest .",
-    "test:watch": "jest . --watchAll --coverage"
+    "test": "jest",
+    "test:watch": "jest --watchAll --coverage"
   },
   "author": {
     "name": "Marcel van den Bosch",
