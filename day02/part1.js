@@ -1,8 +1,11 @@
 module.exports = (values) => values.reduce((validPasswords, currentPassword) => {
-  const lowerBound = Number(currentPassword.slice(0, currentPassword.indexOf('-')));
-  const upperBound = Number(currentPassword.substr(currentPassword.indexOf('-') + 1, currentPassword.indexOf(' ') - 2));
-  const characterToFind = currentPassword.substr(currentPassword.indexOf(' ') + 1, 1);
-  const hash = currentPassword.slice(currentPassword.indexOf(': ') + 2, currentPassword.length).split('');
+  const regexPattern = /(\d+)-(\d+)\s([a-z]):\s([a-z]*)/g;
+  const matchGroups = regexPattern.exec(currentPassword);
+
+  const lowerBound = Number(matchGroups[1]);
+  const upperBound = Number(matchGroups[2]);
+  const characterToFind = matchGroups[3];
+  const hash = matchGroups[4].split('');
 
   const characterMatches = hash.filter((char) => char === characterToFind).length;
 
