@@ -1,7 +1,7 @@
 const part1 = require('./part1');
 
 module.exports = (treeMap, right, down) => {
-  const numberOfTrees = [0, 0, 0, 0, 0];
+  const numberOfTrees = [];
 
   right.forEach((_, index) => {
     const totalTrees = part1(treeMap, right[index], down[index]);
