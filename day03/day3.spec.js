@@ -22,7 +22,7 @@ describe('day 1', () => {
       expect(part1(parsedInput, 3, 1)).toBe(7);
     });
 
-    it('should return the correct value with test values', () => {
+    it('should return the correct value with actual values', () => {
       const input = fs.readFileSync(path.join(__dirname, './input.txt'), { encoding: 'utf-8' }).split(/\r?\n/).map((x) => x.split(''));
       expect(part1(input, 3, 1)).toBe(187);
     });
