@@ -4,7 +4,7 @@ const path = require('path');
 const part1 = require('./part1');
 const part2 = require('./part2');
 
-describe('day 1', () => {
+describe('day 2', () => {
   describe('part 1', () => {
     it('should return the correct value with test values', () => {
       const input = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc'];
