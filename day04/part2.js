@@ -9,7 +9,7 @@ const validateYearField = (field, min, max) => (value) => {
   return value[field].length === 4 && year >= min && year <= max;
 };
 
-const validateMeasurementField = (field, min, max) => (value) => {
+const validateHeightField = (field, min, max) => (value) => {
   const height = parseInt(value[field], 10);
   const unit = value[field].substring(value[field].length - 2);
 
@@ -18,7 +18,7 @@ const validateMeasurementField = (field, min, max) => (value) => {
 
 const validateHexColorField = (field) => (value) => /#[0-9a-f]/.test(value[field]);
 
-const validateAllowedListField = (field, allowedList) => (v) => allowedList.includes(v[field]);
+const validateAllowedColors = (field, allowedList) => (v) => allowedList.includes(v[field]);
 
 const validateNumericStringField = (field, length) => (value) => new RegExp(`^[0-9]{${length}}$`).test(value[field]);
 
@@ -30,9 +30,9 @@ module.exports = (passwords) => {
     validateYearField('byr', 1920, 2002),
     validateYearField('iyr', 2010, 2020),
     validateYearField('eyr', 2020, 2030),
-    validateMeasurementField('hgt', { cm: 150, in: 59 }, { cm: 193, in: 76 }),
+    validateHeightField('hgt', { cm: 150, in: 59 }, { cm: 193, in: 76 }),
     validateHexColorField('hcl'),
-    validateAllowedListField('ecl', ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']),
+    validateAllowedColors('ecl', ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']),
     validateNumericStringField('pid', 9),
   ));
 
